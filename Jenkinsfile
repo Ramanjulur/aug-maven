@@ -2,10 +2,7 @@ pipeline {
     agent {
         label "any"
     }
-    tools {
-        maven 'Maven3.1.1'
-        
-    }
+   
     stages {
         stage ('Initialize') {
             steps {
