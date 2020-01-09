@@ -1,29 +1,24 @@
-pipeline {
-   
-   
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = %PATH%"
-                    echo "M2_HOME = %M2_HOME%"
-                '''
-            }
-        }
-
-        stage ('Build') {
-            steps {
-                    sh 'cd NumberGenerator & mvn install'
-            }
-             post {
-                success {
-                    junit 'NumberGenerator/target/surefire-reports/*.xml'
-                        }
-                 }
-               
-
-           
-            }
-        }
-    
+pipeline{
+agent any
+stages 
+{
+stage('Build') 
+{
+steps{
+echo "Building the Project.........."
+}
+}
+stage('Test') 
+{
+steps{
+echo "Testing the Project.........."
+}
+}
+stage('Deploy') 
+{
+steps{
+echo "Deploying the Project.........."
+}
+}
+}
 }
