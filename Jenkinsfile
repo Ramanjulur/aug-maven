@@ -16,7 +16,7 @@ pipeline {
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "myrepo"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus1234"
+        NEXUS_CREDENTIAL_ID = "test"
 		GROUP_ID = "demo1"
 		ARTIFACT_ID = "myarti"
 		FILE = "/var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar"
