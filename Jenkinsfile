@@ -2,8 +2,8 @@ pipeline {
     agent any
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        jdk "1.8"
-		maven "3.5.4"
+        jdk "my_1.8"
+	maven "3.5.3"
 
     }
     environment {
