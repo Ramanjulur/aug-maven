@@ -48,9 +48,11 @@ pipeline {
         }
 		stage('Deploy') {
             steps {
-			   //sh 'cp -r /var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /opt/'
-               sh 'cp -r /var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /var/www/html/'
+		
+		    //sh 'cp -r /var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /opt/'
+               sh 'cp -r /var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /tmp/deploy/'
             }
+			
             
         }
 
