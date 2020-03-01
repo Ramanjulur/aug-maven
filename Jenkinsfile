@@ -19,7 +19,7 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexus1234"
 		GROUP_ID = "demo1"
 		ARTIFACT_ID = "myarti"
-		FILE = "/var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar"
+		FILE = "/var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar"
 		TYPE = "jar"
     }
     stages {
