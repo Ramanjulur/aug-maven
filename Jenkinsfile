@@ -2,8 +2,8 @@ pipeline {
     agent any
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        jdk "my_1.8"
-	maven "3.5.3"
+        jdk "1.8"
+		maven "3.5.4"
 
     }
     environment {
@@ -12,14 +12,14 @@ pipeline {
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
-        NEXUS_URL = "3.17.81.137:8081/nexus"
+        NEXUS_URL = "3.14.72.132:8081/nexus"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "myrepo"
+        NEXUS_REPOSITORY = "releases"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "test"
+        NEXUS_CREDENTIAL_ID = "nexus1"
 		GROUP_ID = "demo1"
 		ARTIFACT_ID = "myarti"
-		FILE = "/var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar"
+		FILE = "/var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar"
 		TYPE = "jar"
     }
     stages {
@@ -35,7 +35,6 @@ pipeline {
             steps {
                 script {
                     // If you are using Windows then you should use "bat" step
-                    // Since unit testing is out of the scope we skip them
                     sh 'mvn -f NumberGenerator/pom.xml install'
                 }
             }
@@ -48,11 +47,10 @@ pipeline {
         }
 		stage('Deploy') {
             steps {
-		
-		    //sh 'cp -r /var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /opt/'
-               sh 'cp -r /var/lib/jenkins/workspace/groovy_pipeline/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /tmp/deploy/'
+			   //sh 'cp -r /var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar /opt/'
+               //sh 'scp -r /var/lib/jenkins/workspace/Java/NumberGenerator/target/NumberGenerator-1.0-SNAPSHOT.jar agent:/var/www/html/'
+                     echo " deployin " 
             }
-			
             
         }
 
